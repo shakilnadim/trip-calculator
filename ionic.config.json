@@ -1,0 +1,7 @@
+{
+  "name": "trip-calculator",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
