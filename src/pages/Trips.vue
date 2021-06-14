@@ -27,7 +27,7 @@
       :router-link="'/trips/' + trip.id"
     >
       <ion-img
-        :src="'https://source.unsplash.com/random/30' + i + 'x100?' + trip.type"
+        :src="'https://source.unsplash.com/random/40' + i + 'x150?' + trip.type"
       ></ion-img>
       <ion-card-header>
         <ion-card-title class="title">{{ trip.name }}</ion-card-title>
