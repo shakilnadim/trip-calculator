@@ -7,6 +7,9 @@
       }}</ion-item>
     </ion-list>
     <ion-button expand="block" @click="openMemberModal">Add Member</ion-button>
+    <div class="fixed-buttons">
+      <fixed-buttons :trip="trip"></fixed-buttons>
+    </div>
   </base-layout>
 </template>
 
@@ -19,6 +22,7 @@ import {
   IonTitle,
 } from "@ionic/vue";
 import AddMember from "../components/AddMember.vue";
+import FixedButtons from "../components/FixedButtons.vue";
 
 export default {
   components: {
@@ -26,6 +30,7 @@ export default {
     IonItem,
     IonList,
     IonTitle,
+    FixedButtons,
   },
 
   data: () => ({
@@ -36,7 +41,6 @@ export default {
     async openMemberModal() {
       const modal = await modalController.create({
         component: AddMember,
-        cssClass: "my-custom-class",
         componentProps: {
           title: "Add Member",
           trip: this.trip,
@@ -52,4 +56,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.fixed-buttons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1px;
+}
+</style>
