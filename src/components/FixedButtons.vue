@@ -21,9 +21,7 @@ import {
   IonGrid,
   IonRow,
   IonCol,
-  modalController,
 } from "@ionic/vue";
-import MoneyEntryModal from "../components/MoneyEntryModal.vue";
 
 export default {
   components: {
@@ -36,14 +34,8 @@ export default {
   props: ["trip"],
 
   methods: {
-    async openMoneyEntryModal(type) {
-      const modal = await modalController.create({
-        component: MoneyEntryModal,
-        componentProps: {
-          type,
-        },
-      });
-      modal.present();
+    openMoneyEntryModal(type) {
+      this.$emit('openMoneyEntryModal', type);
     },
   },
 };

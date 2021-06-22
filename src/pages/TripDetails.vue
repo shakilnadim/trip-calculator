@@ -8,7 +8,10 @@
     </ion-list>
     <ion-button expand="block" @click="openMemberModal">Add Member</ion-button>
     <div class="fixed-buttons">
-      <fixed-buttons :trip="trip"></fixed-buttons>
+      <fixed-buttons
+        :trip="trip"
+        @openMoneyEntryModal="openMoneyEntryModal"
+      ></fixed-buttons>
     </div>
   </base-layout>
 </template>
@@ -23,6 +26,7 @@ import {
 } from "@ionic/vue";
 import AddMember from "../components/AddMember.vue";
 import FixedButtons from "../components/FixedButtons.vue";
+import MoneyEntryModal from "../components/MoneyEntryModal.vue";
 
 export default {
   components: {
@@ -43,6 +47,17 @@ export default {
         component: AddMember,
         componentProps: {
           title: "Add Member",
+          trip: this.trip,
+        },
+      });
+      modal.present();
+    },
+
+    async openMoneyEntryModal(type) {
+      const modal = await modalController.create({
+        component: MoneyEntryModal,
+        componentProps: {
+          type,
           trip: this.trip,
         },
       });

@@ -19,7 +19,7 @@
       <ion-list>
         <ion-item>
           <ion-label position="floating">Deposit</ion-label>
-          <ion-input type="number" v-model="deposit"></ion-input>
+          <ion-input type="number" min="0" v-model="deposit"></ion-input>
         </ion-item>
       </ion-list>
       <ion-button type="submit" expand="block">Add</ion-button>
